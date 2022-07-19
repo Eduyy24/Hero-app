@@ -1,23 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+export interface GeneralState {
+  pagesData: PageData[];
+  isFullData: boolean;
+}
+
+const initialState = {
+  pagesData: [],
+  isFullData: false,
+} as GeneralState
+
 export const generalSlice = createSlice({
   name: 'general',
-  initialState: {
-    value: 0,
-  },
+  initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
-    },
-    decrement: (state) => {
-      state.value -= 1
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
-    },
+    setPagesData: (state, action) => {
+      state.pagesData = action.payload
+      state.isFullData = true;
+    }
   },
 })
 
-export const { increment, decrement, incrementByAmount } = generalSlice.actions
+export const { setPagesData } = generalSlice.actions
 
 export default generalSlice.reducer
