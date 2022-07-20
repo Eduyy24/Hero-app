@@ -23,10 +23,10 @@ const Input = ({
   field: ControllerRenderProps<FieldValues, string>;
 }) => {
   return (
-    <>
+    <div className={styles.containerInput}>
       <label className={styles.label} htmlFor="input">{label}</label>
       <input id="input" className={styles.inputText} {...field} />
-    </>
+    </div>
   );
 };
 
