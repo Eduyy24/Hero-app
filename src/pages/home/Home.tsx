@@ -7,7 +7,6 @@ const Home = () => {
   const {form} = useParams<{form:string}>();
   const {getPageForKey} = usePagesData()
   const currentPage = getPageForKey(form || '')
-  console.log(currentPage);
 
   return (
     <div className="container">
