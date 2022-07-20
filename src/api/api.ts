@@ -8,15 +8,15 @@ class Api  {
       return [
         {
           order: 1,
-          key: 'step1',
+          key: 'step-1',
         },
         {
           order: 2,
-          key: 'step2',
+          key: 'step-2',
         },
         {
           order: 3,
-          key: 'step3',
+          key: 'step-3',
         }
       ]
   }

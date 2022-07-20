@@ -1,13 +1,18 @@
 import { useParams } from "react-router-dom";
-import { ContentHome } from "./content-home/ContentHome";
+import usePagesData from "../../hooks/usePagesData";
+import { ContentHome } from "./components/content-home/ContentHome";
+import { Steps } from "./components/steps/Steps";
 
 const Home = () => {
   const {form} = useParams<{form:string}>();
-  console.log(form);
+  const {getPageForKey} = usePagesData()
+  const currentPage = getPageForKey(form || '')
+  console.log(currentPage);
 
   return (
     <div className="container">
-      { form === undefined ? <ContentHome /> : <div />}
+      {form === undefined && <ContentHome />}
+      {currentPage !== undefined && <Steps />}
     </div>
   )
 }
