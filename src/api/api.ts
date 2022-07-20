@@ -120,7 +120,11 @@ class Api  {
             {
               component: 'inputText',
               key: 'amount',
-              label: 'Valor del apartamento ($)'
+              label: 'Valor del apartamento ($)',
+              rules: {
+                required: { value: true, message: 'El campo es obligatorio' },
+                pattern: { value: /^[0-9]+$/, message: 'Valor inválido' },
+              }
             }
           ]
         },
