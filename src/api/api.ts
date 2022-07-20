@@ -34,8 +34,89 @@ class Api  {
           fields: [
             {
               component: 'inputText',
-              key: 'name',
-              label: 'text'
+              key: 'adress',
+              label: 'Dirección del apartamento'
+            }
+          ]
+        },
+        {
+          order: 4,
+          key: 'step-4',
+          fields: [
+            {
+              component: 'inputText',
+              key: 'flat',
+              label: 'Numero del piso'
+            }
+          ]
+        },
+        {
+          order: 5,
+          key: 'step-5',
+          fields: [
+            {
+              component: 'inputText',
+              key: 'bbq-area',
+              label: 'Zona BBQ'
+            },
+            {
+              component: 'inputText',
+              key: 'communal-living',
+              label: 'Salón comunal'
+            },
+            {
+              component: 'inputText',
+              key: 'playground',
+              label: 'Parque de juegos'
+            }
+          ]
+        },
+        {
+          order: 6,
+          key: 'step-6',
+          fields: [
+            {
+              component: 'inputText',
+              key: 'parking',
+              label: 'Tiene parqueadero'
+            },
+            {
+              component: 'inputText',
+              key: 'covered',
+              label: 'Es cubierto'
+            }
+          ]
+        },
+        {
+          order: 7,
+          key: 'step-7',
+          fields: [
+            {
+              component: 'inputText',
+              key: 'amount',
+              label: 'Valor del apartamento ($)'
+            }
+          ]
+        },
+        {
+          order: 8,
+          key: 'step-8',
+          fields: [
+            {
+              component: 'inputText',
+              key: 'photo',
+              label: 'Foto del apartamento'
+            }
+          ]
+        },
+        {
+          order: 9,
+          key: 'step-9',
+          fields: [
+            {
+              component: 'inputText',
+              key: 'elevator',
+              label: '¿Tiene elevador?'
             }
           ]
         }

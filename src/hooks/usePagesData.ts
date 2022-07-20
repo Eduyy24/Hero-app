@@ -8,11 +8,10 @@ const usePagesData = () => {
 
   const getPageForKey = (key: string) => pagesData.find((page) => page.key === key);
 
-  const totalPages = pagesData.length;
   return {
     getPageForOrder,
     getPageForKey,
-    totalPages,
+    getAllPagesData: () => pagesData
   }
 }
 

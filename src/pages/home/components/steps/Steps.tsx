@@ -7,51 +7,51 @@ import Components from "../../../../components/Components";
 import { GeneralButton } from "../../../../components/general-button/GeneralButton";
 import { NAME_BUTTON_STEPS } from "../../../../utils/strings";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { setDataSell } from "../../../../redux/slices/generalSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { GeneralState, setDataSell } from "../../../../redux/slices/generalSlice";
 import { useNavigate } from "react-router-dom";
 import usePagesData from "../../../../hooks/usePagesData";
 
 type Props = {
-  currentPage: PageData;
-  totalPages: number;
+  keyForm: string;
 };
 
-export const Steps: FunctionComponent<Props> = ({
-  currentPage,
-  totalPages,
-}) => {
+export const Steps: FunctionComponent<Props> = ({keyForm}) => {
+  const {getPageForKey, getAllPagesData, getPageForOrder} = usePagesData()
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const {getPageForOrder} = usePagesData();
 
-  const fieldsKey = currentPage
-    .fields
-    .map((field) => field.key)
+  const allPages = getAllPagesData();
+  const currentPage = getPageForKey(keyForm || '')
+  const nextPath =  getPageForOrder((currentPage?.order ||  0) + 1)?.key
 
-  const defaultValues = fieldsKey.reduce((accumulator, value) => {
-    return {...accumulator, [value]: ''};
+  const fieldsKey = allPages.reduce((acum, page) => {
+    const keys = page.fields.map((field) => field.key) as never[];
+    return [...acum, ...keys]
+  }, [])
+
+  const dataSet:any = useSelector((state: {general: GeneralState}) => state.general.dataSell)
+
+  const defaultValues = fieldsKey?.reduce((acum, value) => {
+    return {...acum, [value]: dataSet[value] ?? ''};
   }, {});
 
-  console.log('defaultValues', defaultValues);
-
   const { handleSubmit, control } = useForm({
-    defaultValues: defaultValues,
+    defaultValues
   });
 
   const onSubmit = (data: any) => {
     dispatch(setDataSell(data))
-    const newPath =  getPageForOrder(currentPage.order + 1)
-    newPath?.key && navigate(`/${newPath.key}`)
+    nextPath && navigate(`/${nextPath}`)
   }
 
   return (
     <WrapperSteps>
       <>
         <img className={styles.logo} src={logoHero} alt="logo hero" />
-        <ProgressBar value={currentPage.order} max={totalPages} />
+        <ProgressBar value={currentPage?.order || 0} max={allPages.length || 0} />
         <form onSubmit={handleSubmit(onSubmit)}>
-          {currentPage.fields.map((field) => Components(field, control))}
+          {currentPage?.fields.map((field) => Components(field, control))}
           <div className={styles.containerButton}>
             <GeneralButton
               name={NAME_BUTTON_STEPS}
