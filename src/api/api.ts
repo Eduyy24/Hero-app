@@ -13,7 +13,10 @@ class Api  {
             {
               component: 'inputText',
               key: 'name',
-              label: 'Nombre y apellidos'
+              label: 'Nombre y apellidos',
+              rules: {
+                required: { value: true, message: 'El campo es obligatorio' },
+              }
             }
           ]
         },
@@ -39,7 +42,10 @@ class Api  {
             {
               component: 'inputText',
               key: 'adress',
-              label: 'Dirección del apartamento'
+              label: 'Dirección del apartamento',
+              rules: {
+                required: { value: true, message: 'El campo es obligatorio' },
+              }
             }
           ]
         },
@@ -50,7 +56,12 @@ class Api  {
             {
               component: 'inputText',
               key: 'flat',
-              label: 'Numero del piso'
+              label: 'Numero del piso',
+              rules: {
+                required: { value: true, message: 'El campo es obligatorio' },
+                pattern: { value: /^[0-9]+$/, message: 'Valor inválido' },
+                max: { value: 50, message: 'El valor supera el máximo posible' },
+              }
             }
           ]
         },
@@ -61,17 +72,20 @@ class Api  {
             {
               component: 'inputSelect',
               key: 'bbq-area',
-              label: 'Zona BBQ'
+              label: 'Zona BBQ',
+              options: ['SI', 'NO']
             },
             {
               component: 'inputSelect',
               key: 'communal-living',
-              label: 'Salón comunal'
+              label: 'Salón comunal',
+              options: ['SI', 'NO']
             },
             {
               component: 'inputSelect',
               key: 'playground',
-              label: 'Parque de juegos'
+              label: 'Parque de juegos',
+              options: ['SI', 'NO']
             }
           ]
         },
@@ -80,14 +94,22 @@ class Api  {
           key: 'step-6',
           fields: [
             {
-              component: 'inputText',
+              component: 'inputSelect',
               key: 'parking',
-              label: 'Tiene parqueadero'
+              label: 'Tiene parqueadero',
+              options: ['SI', 'NO'],
+              rules: {
+                required: { value: true, message: 'El campo es obligatorio' },
+              }
             },
             {
-              component: 'inputText',
+              component: 'inputSelect',
               key: 'covered',
-              label: 'Es cubierto'
+              label: 'Es cubierto',
+              options: ['SI', 'NO'],
+              rules: {
+                required: { value: true, message: 'El campo es obligatorio' },
+              }
             }
           ]
         },

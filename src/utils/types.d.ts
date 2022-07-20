@@ -3,6 +3,7 @@ interface Field {
   key: string;
   label: string;
   rules?: {};
+  options?: string[]
 }
 
 interface PageData {

@@ -18,6 +18,7 @@ type PropsInput = {
   label: string;
   field: ControllerRenderProps<FieldValues, string>;
   error: string;
+  options?: string[];
 };
 
 const Input: FunctionComponent<PropsInput> = ({ label, field, error }) => {
@@ -34,14 +35,20 @@ const Input: FunctionComponent<PropsInput> = ({ label, field, error }) => {
   );
 };
 
-const Select: FunctionComponent<PropsInput> = ({ label, field, error }) => (
+const Select: FunctionComponent<PropsInput> = ({
+  label,
+  field,
+  error,
+  options,
+}) => (
   <>
     <div className={styles.containerSelect}>
       <label className={styles.label}>{label}</label>
       <select className={styles.selectInput} {...field}>
         <option value="">Seleccione</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
+        {options?.map((option, idx) => (
+          <option key={idx} value={option}>{option}</option>
+        ))}
       </select>
     </div>
     {error && <p className={styles.inputError}>{error}</p>}
@@ -69,7 +76,7 @@ export const InputText: FunctionComponent<Props> = ({
 export const InputSelect: FunctionComponent<Props> = ({
   control,
   name,
-  field: { label, rules },
+  field: { label, rules, options },
   error,
 }) => {
   return (
@@ -77,7 +84,9 @@ export const InputSelect: FunctionComponent<Props> = ({
       name={name}
       control={control as Control}
       rules={rules}
-      render={({ field }) => <Select field={field} error={error} label={label} />}
+      render={({ field }) => (
+        <Select field={field} error={error} label={label} options={options} />
+      )}
     />
   );
 };

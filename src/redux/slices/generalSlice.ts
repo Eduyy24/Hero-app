@@ -22,10 +22,13 @@ export const generalSlice = createSlice({
     },
     setDataSell: (state, action) => {
       state.dataSell = {...state.dataSell, ...action.payload}
+    },
+    clearDataSell:(state) => {
+      state.dataSell = {}
     }
   },
 })
 
-export const { setPagesData, setDataSell } = generalSlice.actions
+export const { setPagesData, setDataSell, clearDataSell } = generalSlice.actions
 
 export default generalSlice.reducer
