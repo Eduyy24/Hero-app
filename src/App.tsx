@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import api from './api/api';
 import Home from './pages/home';
 import Loading from './pages/loading';
+import NotFound from './pages/not-found';
 import { GeneralState, setPagesData } from './redux/slices/generalSlice';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/:form" element={<Home />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
