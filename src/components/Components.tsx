@@ -6,13 +6,14 @@ const ComponentsList = {
   inputEmail: InputEmail,
 };
 
-const Components = (field: Field, control: unknown) => {
+const Components = (field: Field, control: unknown, errors: any) => {
     if (typeof ComponentsList[field.component] !== "undefined") {
       return React.createElement(ComponentsList[field.component], {
         key: field.key,
         field: field,
         control,
         name: field.key,
+        error: errors[field.key]?.message || ''
       });
     }
     return React.createElement(

@@ -30,13 +30,13 @@ export const Steps: FunctionComponent<Props> = ({keyForm}) => {
     return [...acum, ...keys]
   }, [])
 
-  const dataSet:any = useSelector((state: {general: GeneralState}) => state.general.dataSell)
+  const dataSet = useSelector((state: {general: GeneralState}) => state.general.dataSell)
 
   const defaultValues = fieldsKey?.reduce((acum, value) => {
     return {...acum, [value]: dataSet[value] ?? ''};
   }, {});
 
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control, formState: {errors} } = useForm({
     defaultValues
   });
 
@@ -51,7 +51,7 @@ export const Steps: FunctionComponent<Props> = ({keyForm}) => {
         <img className={styles.logo} src={logoHero} alt="logo hero" />
         <ProgressBar value={currentPage?.order || 0} max={allPages.length || 0} />
         <form onSubmit={handleSubmit(onSubmit)}>
-          {currentPage?.fields.map((field) => Components(field, control))}
+          {currentPage?.fields.map((field) => Components(field, control, errors))}
           <div className={styles.containerButton}>
             <GeneralButton
               name={NAME_BUTTON_STEPS}

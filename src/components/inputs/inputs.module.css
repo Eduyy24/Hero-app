@@ -21,3 +21,10 @@
   color: var(--white);
   margin-left: 0.5rem;
 }
+
+.inputError {
+  font-size: 0.8rem;
+  color: var(--background);
+  font-style: italic;
+  margin-left: 0.5rem;
+}

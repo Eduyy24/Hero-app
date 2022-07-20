@@ -13,20 +13,26 @@ type Props = {
   control: unknown;
   name: string;
   field: Field;
+  error: string;
 };
 
 const Input = ({
   label,
   field,
+  error,
 }: {
   label: string;
   field: ControllerRenderProps<FieldValues, string>;
+  error: string;
 }) => {
   return (
-    <div className={styles.containerInput}>
-      <label className={styles.label} htmlFor="input">{label}</label>
-      <input id="input" className={styles.inputText} {...field} />
-    </div>
+    <>
+      <div className={styles.containerInput}>
+        <label className={styles.label} htmlFor="input">{label}</label>
+        <input id="input" className={styles.inputText} {...field} />
+      </div>
+      {error && <p className={styles.inputError}>{error}</p>}
+    </>
   );
 };
 
@@ -34,13 +40,14 @@ export const InputText: FunctionComponent<Props> = ({
   control,
   name,
   field: { label },
+  error,
 }) => {
   return (
     <Controller
       name={name}
       control={control as Control}
-      rules={{ required: true }}
-      render={({ field }) => <Input field={field} label={label} />}
+      rules={{ required: {value:true, message: 'Error'} }}
+      render={({ field }) => <Input field={field} label={label} error={error} />}
     />
   );
 };
@@ -49,6 +56,7 @@ export const InputEmail: FunctionComponent<Props> = ({
   control,
   name,
   field: { label },
+  error
 }) => {
   return (
     <Controller
@@ -58,7 +66,7 @@ export const InputEmail: FunctionComponent<Props> = ({
         required: { value: true, message: FIELD_REQUIRED },
         pattern: { value: regEmail, message: INVALID_EMAIL },
       }}
-      render={({ field }) => <Input field={field} label={label} />}
+      render={({ field }) => <Input field={field} label={label} error={error} />}
     />
   );
 };
