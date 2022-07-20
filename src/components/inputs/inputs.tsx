@@ -54,7 +54,7 @@ export const InputEmail: FunctionComponent<Props> = ({
     <Controller
       name={name}
       control={control as Control}
-      rules={{ 
+      rules={{
         required: { value: true, message: FIELD_REQUIRED },
         pattern: { value: regEmail, message: INVALID_EMAIL },
       }}

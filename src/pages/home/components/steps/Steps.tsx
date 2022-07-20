@@ -7,6 +7,10 @@ import Components from "../../../../components/Components";
 import { GeneralButton } from "../../../../components/general-button/GeneralButton";
 import { NAME_BUTTON_STEPS } from "../../../../utils/strings";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { setDataSell } from "../../../../redux/slices/generalSlice";
+import { useNavigate } from "react-router-dom";
+import usePagesData from "../../../../hooks/usePagesData";
 
 type Props = {
   currentPage: PageData;
@@ -17,6 +21,10 @@ export const Steps: FunctionComponent<Props> = ({
   currentPage,
   totalPages,
 }) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const {getPageForOrder} = usePagesData();
+
   const fieldsKey = currentPage
     .fields
     .map((field) => field.key)
@@ -25,11 +33,17 @@ export const Steps: FunctionComponent<Props> = ({
     return {...accumulator, [value]: ''};
   }, {});
 
+  console.log('defaultValues', defaultValues);
+
   const { handleSubmit, control } = useForm({
     defaultValues: defaultValues,
   });
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    dispatch(setDataSell(data))
+    const newPath =  getPageForOrder(currentPage.order + 1)
+    newPath?.key && navigate(`/${newPath.key}`)
+  }
 
   return (
     <WrapperSteps>
@@ -40,7 +54,6 @@ export const Steps: FunctionComponent<Props> = ({
           {currentPage.fields.map((field) => Components(field, control))}
           <div className={styles.containerButton}>
             <GeneralButton
-              onClick={() => {}}
               name={NAME_BUTTON_STEPS}
             />
           </div>

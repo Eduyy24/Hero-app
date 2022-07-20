@@ -3,7 +3,7 @@ import styles from './GeneralButton.module.css'
 
 type Props = {
   name: string;
-  onClick: EmptyFunction;
+  onClick?: EmptyFunction;
 }
 export const GeneralButton: FunctionComponent<Props> = (props) => {
   const {name = '', onClick} = props;

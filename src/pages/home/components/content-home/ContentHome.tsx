@@ -7,7 +7,7 @@ import usePagesData from '../../../../hooks/usePagesData';
 import heroLogo from '../../../../assets/superhero.png';
 
 export const ContentHome: FunctionComponent = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const {getPageForOrder} = usePagesData()
   const nextPage = getPageForOrder(1);
 
