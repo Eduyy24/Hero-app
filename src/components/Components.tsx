@@ -1,9 +1,9 @@
 import React from "react";
-import { InputText } from "./inputs/inputs";
+import { InputEmail, InputText } from "./inputs/inputs";
 
 const ComponentsList = {
   inputText: InputText,
-  inputEmail: InputText,
+  inputEmail: InputEmail,
 };
 
 const Components = (field: Field, control: unknown) => {
@@ -16,7 +16,7 @@ const Components = (field: Field, control: unknown) => {
       });
     }
     return React.createElement(
-      () => <div>The component {field.component} has not been created yet.</div>,
+      () => <div>The component {field.component} not exist.</div>,
       { key: field.key }
     );
 }

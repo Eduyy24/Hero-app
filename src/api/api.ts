@@ -12,7 +12,8 @@ class Api  {
           fields: [
             {
               component: 'inputText',
-              key: 'name'
+              key: 'name',
+              label: 'Nombre y apellidos'
             }
           ]
         },
@@ -22,7 +23,8 @@ class Api  {
           fields: [
             {
               component: 'inputEmail',
-              key: 'email'
+              key: 'email',
+              label: 'Correo electrónico'
             }
           ]
         },
@@ -32,7 +34,8 @@ class Api  {
           fields: [
             {
               component: 'inputText',
-              key: 'name'
+              key: 'name',
+              label: 'text'
             }
           ]
         }
