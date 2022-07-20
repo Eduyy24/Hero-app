@@ -1,4 +1,4 @@
-import { forwardRef, FunctionComponent, LegacyRef } from "react";
+import { FunctionComponent } from "react";
 import {
   Control,
   Controller,

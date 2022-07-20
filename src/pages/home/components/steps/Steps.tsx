@@ -42,7 +42,7 @@ export const Steps: FunctionComponent<Props> = ({keyForm}) => {
 
   const onSubmit = (data: any) => {
     dispatch(setDataSell(data))
-    nextPath && navigate(`/${nextPath}`)
+    nextPath ? navigate(`/${nextPath}`):navigate(`/resume`)
   }
 
   return (
