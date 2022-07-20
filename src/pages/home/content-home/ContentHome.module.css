@@ -1,0 +1,41 @@
+.container {
+  display: block;
+  background-color: var(--gray-transparent);
+  position: absolute;
+  width: 60%;
+  left: 25%;
+  top: 25%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.heroLogo {
+  width: 200px;
+  margin: 0px auto;
+  display: block;
+}
+
+.title {
+  text-align: center;
+  color: var(--background);
+}
+
+.subTitle {
+  text-align: center;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--background);
+}
+
+.wrapperButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 80%;
+    left: 10%;
+  }
+}

@@ -1,4 +1,4 @@
-import { ContentHome } from "./WrapperButton/ContentHome";
+import { ContentHome } from "./content-home/ContentHome";
 
 const Home = () => {
   return (
