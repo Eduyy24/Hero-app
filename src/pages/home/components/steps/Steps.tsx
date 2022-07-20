@@ -17,12 +17,20 @@ export const Steps: FunctionComponent<Props> = ({
   currentPage,
   totalPages,
 }) => {
-  const { handleSubmit, control, reset } = useForm({
-    defaultValues: {
-      name: "",
-    },
+  const fieldsKey = currentPage
+    .fields
+    .map((field) => field.key)
+
+  const defaultValues = fieldsKey.reduce((accumulator, value) => {
+    return {...accumulator, [value]: ''};
+  }, {});
+
+  const { handleSubmit, control } = useForm({
+    defaultValues: defaultValues,
   });
+
   const onSubmit = (data: any) => console.log(data);
+
   return (
     <WrapperSteps>
       <>
