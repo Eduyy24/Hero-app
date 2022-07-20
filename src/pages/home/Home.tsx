@@ -5,13 +5,13 @@ import { Steps } from "./components/steps/Steps";
 
 const Home = () => {
   const {form} = useParams<{form:string}>();
-  const {getPageForKey} = usePagesData()
+  const {getPageForKey, totalPages} = usePagesData()
   const currentPage = getPageForKey(form || '')
 
   return (
     <div className="container">
       {form === undefined && <ContentHome />}
-      {currentPage !== undefined && <Steps />}
+      {currentPage !== undefined && <Steps currentPage={currentPage} totalPages={totalPages} />}
     </div>
   )
 }
