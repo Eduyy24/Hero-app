@@ -1,12 +1,9 @@
-import { GeneralButton } from "../../components/general-button/GeneralButton";
-import { WrapperButton } from "./WrapperButton/WrapperButton";
+import { ContentHome } from "./WrapperButton/ContentHome";
 
 const Home = () => {
   return (
     <div className="container">
-      <WrapperButton>
-        <GeneralButton name="Comprar" />
-      </WrapperButton>
+      <ContentHome />
     </div>
   )
 }
