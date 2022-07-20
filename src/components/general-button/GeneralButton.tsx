@@ -3,8 +3,9 @@ import styles from './GeneralButton.module.css'
 
 type Props = {
   name: string;
+  onClick: EmptyFunction;
 }
 export const GeneralButton: FunctionComponent<Props> = (props) => {
-  const {name = ''} = props;
-  return <button name={name} className={styles.generalButton}>{name}</button>
+  const {name = '', onClick} = props;
+  return <button onClick={onClick} name={name} className={styles.generalButton}>{name}</button>
 }
