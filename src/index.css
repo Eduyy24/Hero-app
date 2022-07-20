@@ -16,6 +16,38 @@ code {
 #root {
   min-height: 100vh;
   display: grid;
+  background-repeat: no-repeat;
   grid-template-rows: auto 1fr auto;
+  background-image: url('./assets/background.jpg');
+  background-size: cover;
 }
 
+.container {
+  width: 100vw;
+  padding: 0rem 1rem;
+  margin: 0rem auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
