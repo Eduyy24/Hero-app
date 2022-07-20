@@ -1,5 +1,6 @@
 interface PageData {
-  order: number
+  order: number;
+  key: string;
 }
 
 type EmptyFunction = () => void;

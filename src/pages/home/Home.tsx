@@ -7,7 +7,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <ContentHome />
+      { form === undefined ? <ContentHome /> : <div />}
     </div>
   )
 }
