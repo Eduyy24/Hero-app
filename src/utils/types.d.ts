@@ -1,7 +1,8 @@
 interface Field {
-  component: 'inputText' | 'inputEmail';
+  component: 'inputText';
   key: string;
   label: string;
+  rules?: {};
 }
 
 interface PageData {

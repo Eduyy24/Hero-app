@@ -1,9 +1,8 @@
 import React from "react";
-import { InputEmail, InputText } from "./inputs/inputs";
+import { InputText } from "./inputs/inputs";
 
 const ComponentsList = {
   inputText: InputText,
-  inputEmail: InputEmail,
 };
 
 const Components = (field: Field, control: unknown, errors: any) => {

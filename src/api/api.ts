@@ -22,9 +22,13 @@ class Api  {
           key: 'step-2',
           fields: [
             {
-              component: 'inputEmail',
+              component: 'inputText',
               key: 'email',
-              label: 'Correo electrónico'
+              label: 'Correo electrónico',
+              rules: {
+                required: { value: true, message: 'El campo es obligatorio' },
+                pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: 'Correo inválido' },
+              }
             }
           ]
         },
