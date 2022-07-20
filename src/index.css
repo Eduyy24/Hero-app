@@ -4,7 +4,12 @@
   --primary: #ac6ea5;
   --primary-light: #bda2bb;
   --accent: #fdbbb8;
-  --gray: #6c757d
+  --gray: #6c757d;
+  --gray-transparent: rgba(133, 133, 133, 0.585);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -31,7 +36,9 @@ code {
 }
 
 .container {
+  position: relative;
   width: 100vw;
+  min-height: 100vh;
   padding: 0rem 1rem;
   margin: 0rem auto;
 }

@@ -1,0 +1,17 @@
+.container {
+  background-color: var(--gray-transparent);
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  top: 25%;
+  left: 25%;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 80%;
+    left: 10%;
+  }
+}
