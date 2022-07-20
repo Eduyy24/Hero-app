@@ -28,3 +28,24 @@
   font-style: italic;
   margin-left: 0.5rem;
 }
+
+.containerSelect {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selectInput {
+  border: none;
+  border-radius: 1rem;
+  height: 2rem;
+  padding: 0rem 0.5rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-align: center;
+}
+
+.selectInput:focus-visible {
+  outline: none;
+}

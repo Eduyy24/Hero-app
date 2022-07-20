@@ -59,17 +59,17 @@ class Api  {
           key: 'step-5',
           fields: [
             {
-              component: 'inputText',
+              component: 'inputSelect',
               key: 'bbq-area',
               label: 'Zona BBQ'
             },
             {
-              component: 'inputText',
+              component: 'inputSelect',
               key: 'communal-living',
               label: 'Salón comunal'
             },
             {
-              component: 'inputText',
+              component: 'inputSelect',
               key: 'playground',
               label: 'Parque de juegos'
             }
