@@ -1,2 +1,11 @@
 .generalButton {
+  background-color: var(--background);
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  min-width: 100px;
+  color: var(--primary);
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
 }
