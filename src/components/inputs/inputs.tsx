@@ -20,21 +20,21 @@ type PropsInput = {
   values?: any;
 };
 
-const Input: FunctionComponent<PropsInput> = ({ label, field, error }) => {
+export const Input: FunctionComponent<PropsInput> = ({ label, field, error }) => {
   return (
     <>
       <div className={styles.containerInput}>
         <label className={styles.label} htmlFor="input">
           {label}
         </label>
-        <input id="input" className={styles.inputText} {...field} />
+        <input data-testid='inputText' id="input" className={styles.inputText} {...field} />
       </div>
       {error && <p className={styles.inputError}>{error}</p>}
     </>
   );
 };
 
-const Select: FunctionComponent<PropsInput> = ({
+export const Select: FunctionComponent<PropsInput> = ({
   label,
   field,
   error,
@@ -56,7 +56,7 @@ const Select: FunctionComponent<PropsInput> = ({
   </>
 );
 
-const PhotoFile: FunctionComponent<PropsInput> = ({
+export const PhotoFile: FunctionComponent<PropsInput> = ({
   label,
   error,
   field,
@@ -88,7 +88,7 @@ const PhotoFile: FunctionComponent<PropsInput> = ({
   );
 };
 
-const Checkbox: FunctionComponent<PropsInput> = ({
+export const Checkbox: FunctionComponent<PropsInput> = ({
   label,
   field,
   error,
