@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import { GeneralButton } from "../../../../components/general-button/GeneralButton"
 import { WrapperSteps } from "../../../../components/wrapper-steps/WrapperSteps"
 import usePagesData from "../../../../hooks/usePagesData"
 import { GeneralState } from "../../../../redux/slices/generalSlice"
@@ -64,6 +65,9 @@ export const Resume = () => {
             )
           })
         }
+        <div className={styles.containerButton}>
+          <GeneralButton name="Finalizar" onClick={()=> {alert('Proceso finalizado')}}/>
+        </div>
       </>
     </WrapperSteps>
   );

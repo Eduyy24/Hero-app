@@ -10,3 +10,9 @@
   color: var(--white);
   margin-top: 0.5rem;
 }
+
+.containerButton {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
