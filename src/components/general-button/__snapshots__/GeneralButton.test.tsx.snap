@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GeneralButton /> onClick called 1`] = `
+<button
+  class="generalButton"
+  name="Aceptar"
+>
+  Aceptar
+</button>
+`;

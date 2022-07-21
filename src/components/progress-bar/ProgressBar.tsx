@@ -7,7 +7,7 @@ type Props = {
 export const ProgressBar: FunctionComponent<Props> = ({max, value}) => {
   return (
     <div>
-      <progress className={styles.progressBar} value={value} max={max} />
+      <progress data-testid='progress' className={styles.progressBar} value={value} max={max} />
       <p className={styles.count}>{value} / {max}</p>
     </div>
   )
