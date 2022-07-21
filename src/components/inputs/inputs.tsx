@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import {
   Controller,
   ControllerRenderProps,
@@ -13,9 +13,11 @@ type Props = {
 
 type PropsInput = {
   label: string;
-  field: ControllerRenderProps<FieldValues, string>;
+  field?: ControllerRenderProps<FieldValues, string>;
   error: string;
   options?: string[];
+  register?: any;
+  values?: any;
 };
 
 const Input: FunctionComponent<PropsInput> = ({ label, field, error }) => {
@@ -54,24 +56,31 @@ const Select: FunctionComponent<PropsInput> = ({
   </>
 );
 
-const PhotoFile: FunctionComponent<PropsInput> = ({ label, field, error }) => {
+const PhotoFile: FunctionComponent<PropsInput> = ({
+  label,
+  error,
+  field,
+}) => {
   return (
     <>
       <div className={styles.containerInput}>
         <label className={styles.label} htmlFor="input">
           {label}
         </label>
-        {field.value && (
+        {field?.value && (
           <figure>
-            <img src={field.value} alt={field.name} />
+            <img className={styles.photo} src={field.value} alt="imagen" />
           </figure>
         )}
         <input
-          ref={field.ref}
-          onChange={(e) => {console.log(e.target.files)}}
           type="file"
-          id="input"
-          className={styles.inputText}
+          name="image"
+          ref={field?.ref}
+          onChange={(e) => {
+            const file = e.target.files ? e.target.files[0] : null
+            field?.onChange(URL.createObjectURL(file!))
+          }}
+          className={styles.inputFile}
         />
       </div>
       {error && <p className={styles.inputError}>{error}</p>}
@@ -81,7 +90,10 @@ const PhotoFile: FunctionComponent<PropsInput> = ({ label, field, error }) => {
 
 export const InputText: FunctionComponent<Props> = ({
   field: { label, rules, key },
-  form: {control, formState: {errors}},
+  form: {
+    control,
+    formState: { errors },
+  },
 }) => {
   return (
     <Controller
@@ -89,7 +101,7 @@ export const InputText: FunctionComponent<Props> = ({
       control={control}
       rules={rules}
       render={({ field }) => (
-        <Input field={field} label={label} error={errors[key]?.message || ''} />
+        <Input field={field} label={label} error={errors[key]?.message || ""} />
       )}
     />
   );
@@ -97,7 +109,10 @@ export const InputText: FunctionComponent<Props> = ({
 
 export const InputSelect: FunctionComponent<Props> = ({
   field: { label, rules, options, key },
-  form: {control, formState: {errors}},
+  form: {
+    control,
+    formState: { errors },
+  },
 }) => {
   return (
     <Controller
@@ -107,7 +122,7 @@ export const InputSelect: FunctionComponent<Props> = ({
       render={({ field }) => (
         <Select
           field={field}
-          error={errors[key]?.message || ''}
+          error={errors[key]?.message || ""}
           label={label}
           options={options}
         />
@@ -118,7 +133,12 @@ export const InputSelect: FunctionComponent<Props> = ({
 
 export const InputFile: FunctionComponent<Props> = ({
   field: { label, rules, key },
-  form: {control, formState: {errors}},
+  form: {
+    register,
+    getValues,
+    control,
+    formState: { errors },
+  },
 }) => {
   return (
     <Controller
@@ -126,7 +146,11 @@ export const InputFile: FunctionComponent<Props> = ({
       control={control}
       rules={rules}
       render={({ field }) => (
-        <PhotoFile label={label} error={errors[key]?.message || ''} field={field} />
+        <PhotoFile
+          label={label}
+          error={errors[key]?.message || ""}
+          field={field}
+        />
       )}
     />
   );

@@ -134,7 +134,7 @@ class Api  {
           fields: [
             {
               component: 'inputFile',
-              key: 'file',
+              key: 'photo',
               label: 'Foto del apartamento'
             }
           ]
@@ -144,9 +144,13 @@ class Api  {
           key: 'step-9',
           fields: [
             {
-              component: 'inputText',
+              component: 'inputSelect',
               key: 'elevator',
-              label: '¿Tiene elevador?'
+              label: '¿Tiene elevador?',
+              rules: {
+                required: { value: true, message: 'El campo es obligatorio' },
+              },
+              options: ['SI', 'NO']
             }
           ]
         }

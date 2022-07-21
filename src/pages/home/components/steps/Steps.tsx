@@ -46,8 +46,6 @@ export const Steps: FunctionComponent<Props> = ({ keyForm }) => {
   });
 
   const onSubmit = (data: any) => {
-    console.log("data", data);
-
     dispatch(setDataSell(data));
     navigate(`/${nextPath ?? "resume"}`);
   };
