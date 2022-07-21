@@ -1,4 +1,5 @@
 import React from "react";
+import { UseFormReturn } from "react-hook-form";
 import { InputCheckbox, InputFile, InputSelect, InputText } from "./inputs/inputs";
 
 const ComponentsList = {
@@ -8,7 +9,7 @@ const ComponentsList = {
   inputCheckbox: InputCheckbox
 };
 
-const Components = (field: Field, form: any, ) => {
+const Components = (field: Field, form: UseFormReturn<{}, object>, ) => {
     if (typeof ComponentsList[field.component] !== "undefined") {
       return React.createElement(ComponentsList[field.component], {
         key: field.key,
