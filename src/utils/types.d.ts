@@ -1,5 +1,5 @@
 interface Field {
-  component: 'inputText' | 'inputSelect';
+  component: 'inputText' | 'inputSelect' | 'inputFile';
   key: string;
   label: string;
   rules?: {};

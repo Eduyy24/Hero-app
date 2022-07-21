@@ -133,8 +133,8 @@ class Api  {
           key: 'step-8',
           fields: [
             {
-              component: 'inputText',
-              key: 'photo',
+              component: 'inputFile',
+              key: 'file',
               label: 'Foto del apartamento'
             }
           ]

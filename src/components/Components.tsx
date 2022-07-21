@@ -1,19 +1,18 @@
 import React from "react";
-import { InputSelect, InputText } from "./inputs/inputs";
+import { InputFile, InputSelect, InputText } from "./inputs/inputs";
 
 const ComponentsList = {
   inputText: InputText,
   inputSelect: InputSelect,
+  inputFile: InputFile,
 };
 
-const Components = (field: Field, control: unknown, errors: any) => {
+const Components = (field: Field, form: any, ) => {
     if (typeof ComponentsList[field.component] !== "undefined") {
       return React.createElement(ComponentsList[field.component], {
         key: field.key,
         field: field,
-        control,
-        name: field.key,
-        error: errors[field.key]?.message || ''
+        form,
       });
     }
     return React.createElement(
