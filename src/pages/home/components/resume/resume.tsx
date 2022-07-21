@@ -57,8 +57,8 @@ export const Resume = () => {
         {
           processData().map((data, idx) => {
             return (
-              <div key={idx}>
-                <span>{data.key}</span>
+              <div className={styles.row} key={idx}>
+                <span>{data.key}:</span>
                 <span>{data.value}</span>
               </div>
             )

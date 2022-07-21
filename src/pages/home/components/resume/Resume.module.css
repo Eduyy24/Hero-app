@@ -1,4 +1,12 @@
 .title {
   color: var(--white);
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  color: var(--white);
+  margin-top: 0.5rem;
 }
