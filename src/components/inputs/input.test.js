@@ -1,5 +1,7 @@
 import {fireEvent, render, screen} from '@testing-library/react';
-import {Input} from './inputs'
+import userEvent from '@testing-library/user-event';
+import {Input, Select} from './inputs'
+
 
 describe('<Inputs />', () => {
   test('<Input />, onChange resolve and return value, too validate atributes from field', () => {
@@ -39,5 +41,47 @@ describe('<Inputs />', () => {
 
     expect(labelDOM).toBeInTheDocument()
     expect(errorDOM).toBeInTheDocument()
+  })
+
+  test('<Select />, onChange resolve and return value selected, too validate atributes from field', () => {
+    const field = {
+      onChange: jest.fn(),
+      onBlur: jest.fn(),
+      name: "name",
+    }
+    const label = ""
+    const error = ""
+    const options = ['1', '2']
+
+    render(<Select field={field} label={label} error={error} options={options} />)
+
+    const input = screen.getByTestId('inputSelect')
+    userEvent.selectOptions(input, '1');
+    expect((screen.getByText('1')).selected).toBeTruthy();
+    expect((screen.queryByText('2')).selected).toBeFalsy();
+    expect(field.onChange).toHaveBeenCalled()
+    expect(input.value).toBe('1')
+  })
+
+  test('<Select />, show error and label, and not selected values', () => {
+    const field = {
+      onChange: jest.fn(),
+      onBlur: jest.fn(),
+      name: "name",
+    }
+    const label = "Nombre"
+    const error = "Este es un error"
+    const options = ['1', '2']
+
+
+    render(<Select field={field} label={label} error={error} options={options} />)
+
+    const labelDOM = screen.getByText(label)
+    const errorDOM = screen.getByText(error)
+
+    expect(labelDOM).toBeInTheDocument()
+    expect(errorDOM).toBeInTheDocument()
+    expect((screen.queryByText('1')).selected).toBeFalsy();
+    expect((screen.queryByText('2')).selected).toBeFalsy();
   })
 })

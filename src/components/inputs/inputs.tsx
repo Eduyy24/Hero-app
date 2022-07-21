@@ -43,7 +43,7 @@ export const Select: FunctionComponent<PropsInput> = ({
   <>
     <div className={styles.containerSelect}>
       <label className={styles.label}>{label}</label>
-      <select className={styles.selectInput} {...field}>
+      <select data-testid='inputSelect' className={styles.selectInput} {...field}>
         <option value="">Seleccione</option>
         {options?.map((option, idx) => (
           <option key={idx} value={option}>
