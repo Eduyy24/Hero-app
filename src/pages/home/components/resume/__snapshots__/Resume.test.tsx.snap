@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContentHome /> Render component, and render number row correctly 1`] = `
+<div
+  data-testid="container-resume"
+>
+  <h3
+    class="title"
+  >
+    Resumen de venta
+  </h3>
+  <div
+    class="row"
+    data-testid="list-resume"
+  >
+    <strong>
+      Nombre y apellidos
+      :
+    </strong>
+    <span>
+      Eduardo Pinedo
+    </span>
+  </div>
+  <div
+    class="containerButton"
+  >
+    <button
+      class="generalButton"
+      name="Finalizar"
+    >
+      Finalizar
+    </button>
+  </div>
+</div>
+`;

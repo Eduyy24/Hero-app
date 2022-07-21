@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContentHome /> render 1`] = `
+<div
+  class="container"
+  data-testid="container-content"
+>
+  <img
+    alt="hero logo"
+    class="heroLogo"
+    src="superhero.png"
+  />
+  <h1
+    class="title"
+  >
+    Hero App
+  </h1>
+  <h2
+    class="subTitle"
+  >
+    Tu heroe de ventas inmobiliario
+  </h2>
+  <div
+    class="wrapperButton"
+  >
+    <button
+      class="generalButton"
+      name="Vender"
+    >
+      Vender
+    </button>
+  </div>
+</div>
+`;

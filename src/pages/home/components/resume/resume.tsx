@@ -64,11 +64,11 @@ export const Resume = () => {
 
   return (
     <WrapperSteps>
-      <>
+      <div data-testid='container-resume'>
         <h3 className={styles.title}>Resumen de venta</h3>
         {processData().map((data, idx) => {
           return (
-            <div className={styles.row} key={idx}>
+            <div data-testid='list-resume' className={styles.row} key={idx}>
               <strong>{data.key}:</strong>
               <span>{data.value}</span>
             </div>
@@ -77,7 +77,7 @@ export const Resume = () => {
         <div className={styles.containerButton}>
           <GeneralButton name="Finalizar" onClick={onClickFinalize} />
         </div>
-      </>
+      </div>
     </WrapperSteps>
   );
 };

@@ -12,7 +12,7 @@ export const ContentHome: FunctionComponent = () => {
   const nextPage = getPageForOrder(1);
 
   return (
-    <div className={styles.container}>
+    <div data-testid='container-content' className={styles.container}>
       <img className={styles.heroLogo} src={heroLogo} alt='hero logo' />
       <h1 className={styles.title}>{NAME_APP}</h1>
       <h2 className={styles.subTitle}>{DESCRIPTION_APP}</h2>
