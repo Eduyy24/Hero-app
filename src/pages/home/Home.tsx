@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { ContentHome } from "./components/content-home/ContentHome";
-import { Resume } from "./components/resume/resume";
+import { Resume } from "./components/resume/Resume";
 import { Steps } from "./components/steps/Steps";
 
 const Home = () => {

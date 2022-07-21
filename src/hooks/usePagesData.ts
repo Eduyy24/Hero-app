@@ -8,10 +8,17 @@ const usePagesData = () => {
 
   const getPageForKey = (key: string) => pagesData.find((page) => page.key === key);
 
+  const allFields =  pagesData.reduce((acum, page) => {
+    return [...acum, ...page.fields as never];
+  }, []);
+
+  const getFieldForKey = (key: string):Field | undefined => allFields.find((field: Field) => field.key === key)
+
   return {
     getPageForOrder,
     getPageForKey,
-    getAllPagesData: () => pagesData
+    getAllPagesData: () => pagesData,
+    getFieldForKey
   }
 }
 

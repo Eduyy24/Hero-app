@@ -11,6 +11,7 @@ class Api  {
           key: 'step-1',
           fields: [
             {
+              type: 'string',
               component: 'inputText',
               key: 'name',
               label: 'Nombre y apellidos',
@@ -25,6 +26,7 @@ class Api  {
           key: 'step-2',
           fields: [
             {
+              type: 'string',
               component: 'inputText',
               key: 'email',
               label: 'Correo electrónico',
@@ -40,6 +42,7 @@ class Api  {
           key: 'step-3',
           fields: [
             {
+              type: 'string',
               component: 'inputText',
               key: 'adress',
               label: 'Dirección del apartamento',
@@ -54,6 +57,7 @@ class Api  {
           key: 'step-4',
           fields: [
             {
+              type: 'string',
               component: 'inputText',
               key: 'flat',
               label: 'Numero del piso',
@@ -70,16 +74,19 @@ class Api  {
           key: 'step-5',
           fields: [
             {
+              type: 'bool',
               component: 'inputCheckbox',
               key: 'bbq-area',
               label: 'Zona BBQ',
             },
             {
+              type: 'bool',
               component: 'inputCheckbox',
               key: 'communal-living',
               label: 'Salón comunal',
             },
             {
+              type: 'bool',
               component: 'inputCheckbox',
               key: 'playground',
               label: 'Parque de juegos',
@@ -91,6 +98,7 @@ class Api  {
           key: 'step-6',
           fields: [
             {
+              type: 'string',
               component: 'inputSelect',
               key: 'parking',
               label: 'Tiene parqueadero',
@@ -100,6 +108,7 @@ class Api  {
               }
             },
             {
+              type: 'string',
               component: 'inputSelect',
               key: 'covered',
               label: 'Es cubierto',
@@ -115,6 +124,7 @@ class Api  {
           key: 'step-7',
           fields: [
             {
+              type: 'money',
               component: 'inputText',
               key: 'amount',
               label: 'Valor del apartamento ($)',
@@ -130,6 +140,7 @@ class Api  {
           key: 'step-8',
           fields: [
             {
+              type: 'file',
               component: 'inputFile',
               key: 'photo',
               label: 'Foto del apartamento'
@@ -141,6 +152,7 @@ class Api  {
           key: 'step-9',
           fields: [
             {
+              type: 'string',
               component: 'inputSelect',
               key: 'elevator',
               label: '¿Tiene elevador?',
