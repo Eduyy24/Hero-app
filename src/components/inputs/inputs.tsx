@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent } from "react";
 import {
   Controller,
   ControllerRenderProps,
@@ -88,6 +88,20 @@ const PhotoFile: FunctionComponent<PropsInput> = ({
   );
 };
 
+const Checkbox: FunctionComponent<PropsInput> = ({
+  label,
+  field,
+  error,
+}) => (
+  <>
+    <div className={styles.containerSelect}>
+      <label className={styles.label}>{label}</label>
+      <input className={styles.checkbox} type='checkbox' {...field} />
+    </div>
+    {error && <p className={styles.inputError}>{error}</p>}
+  </>
+);
+
 export const InputText: FunctionComponent<Props> = ({
   field: { label, rules, key },
   form: {
@@ -134,8 +148,6 @@ export const InputSelect: FunctionComponent<Props> = ({
 export const InputFile: FunctionComponent<Props> = ({
   field: { label, rules, key },
   form: {
-    register,
-    getValues,
     control,
     formState: { errors },
   },
@@ -147,6 +159,29 @@ export const InputFile: FunctionComponent<Props> = ({
       rules={rules}
       render={({ field }) => (
         <PhotoFile
+          label={label}
+          error={errors[key]?.message || ""}
+          field={field}
+        />
+      )}
+    />
+  );
+};
+
+export const InputCheckbox: FunctionComponent<Props> = ({
+  field: { label, rules, key },
+  form: {
+    control,
+    formState: { errors },
+  },
+}) => {
+  return (
+    <Controller
+      name={key}
+      control={control}
+      rules={rules}
+      render={({ field }) => (
+        <Checkbox
           label={label}
           error={errors[key]?.message || ""}
           field={field}

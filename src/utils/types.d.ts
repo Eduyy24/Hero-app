@@ -1,5 +1,5 @@
 interface Field {
-  component: 'inputText' | 'inputSelect' | 'inputFile';
+  component: 'inputText' | 'inputSelect' | 'inputFile' | 'inputCheckbox';
   key: string;
   label: string;
   rules?: {};

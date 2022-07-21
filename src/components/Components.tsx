@@ -1,10 +1,11 @@
 import React from "react";
-import { InputFile, InputSelect, InputText } from "./inputs/inputs";
+import { InputCheckbox, InputFile, InputSelect, InputText } from "./inputs/inputs";
 
 const ComponentsList = {
   inputText: InputText,
   inputSelect: InputSelect,
   inputFile: InputFile,
+  inputCheckbox: InputCheckbox
 };
 
 const Components = (field: Field, form: any, ) => {

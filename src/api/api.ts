@@ -70,22 +70,19 @@ class Api  {
           key: 'step-5',
           fields: [
             {
-              component: 'inputSelect',
+              component: 'inputCheckbox',
               key: 'bbq-area',
               label: 'Zona BBQ',
-              options: ['SI', 'NO']
             },
             {
-              component: 'inputSelect',
+              component: 'inputCheckbox',
               key: 'communal-living',
               label: 'Salón comunal',
-              options: ['SI', 'NO']
             },
             {
-              component: 'inputSelect',
+              component: 'inputCheckbox',
               key: 'playground',
               label: 'Parque de juegos',
-              options: ['SI', 'NO']
             }
           ]
         },
