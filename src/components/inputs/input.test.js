@@ -1,6 +1,6 @@
 import {fireEvent, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {Input, Select} from './inputs'
+import {Input, Select, PhotoFile} from './inputs'
 
 
 describe('<Inputs />', () => {
@@ -83,5 +83,38 @@ describe('<Inputs />', () => {
     expect(errorDOM).toBeInTheDocument()
     expect((screen.queryByText('1')).selected).toBeFalsy();
     expect((screen.queryByText('2')).selected).toBeFalsy();
+  })
+
+  test('<PhotoFile />', async () => {
+    const field = {
+      onChange: jest.fn(),
+      onBlur: jest.fn(),
+      name: "name",
+    }
+    const file = new File(["test file"], "file.png", { type: "image/png" });
+
+    render(<PhotoFile field={field} label="" error="" />)
+    const input = screen.getByTestId('inputFile')
+
+    userEvent.upload(input, file);
+    expect(input.files[0]).toStrictEqual(file);
+  })
+
+  test('<PhotoFile />, show error and label', () => {
+    const field = {
+      onChange: jest.fn(),
+      onBlur: jest.fn(),
+      name: "name",
+    }
+    const label = "Nombre"
+    const error = "Este es un error"
+
+    render(<PhotoFile field={field} label={label} error={error}  />)
+
+    const labelDOM = screen.getByText(label)
+    const errorDOM = screen.getByText(error)
+
+    expect(labelDOM).toBeInTheDocument()
+    expect(errorDOM).toBeInTheDocument()
   })
 })

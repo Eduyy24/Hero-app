@@ -73,6 +73,7 @@ export const PhotoFile: FunctionComponent<PropsInput> = ({
           </figure>
         )}
         <input
+          data-testid='inputFile'
           type="file"
           name="image"
           ref={field?.ref}
