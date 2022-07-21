@@ -52,7 +52,7 @@ export const Steps: FunctionComponent<Props> = ({ keyForm }) => {
 
   return (
     <WrapperSteps>
-      <>
+      <div data-testid='container-steps'>
         <img className={styles.logo} src={logoHero} alt="logo hero" />
         <ProgressBar
           value={currentPage?.order || 0}
@@ -66,7 +66,7 @@ export const Steps: FunctionComponent<Props> = ({ keyForm }) => {
             <GeneralButton name={NAME_BUTTON_STEPS} />
           </div>
         </form>
-      </>
+      </div>
     </WrapperSteps>
   );
 };

@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Steps /> <InputData> validate useForm hook with JSON config for the component 1`] = `
+<div
+  data-testid="container-steps"
+>
+  <img
+    alt="logo hero"
+    class="logo"
+    src="superhero.png"
+  />
+  <div>
+    <progress
+      class="progressBar"
+      data-testid="progress"
+      max="1"
+      value="1"
+    />
+    <p
+      class="count"
+    >
+      1
+       / 
+      1
+    </p>
+  </div>
+  <form>
+    <div
+      class="containerInput"
+    >
+      <label
+        class="label"
+        for="input"
+      >
+        Correo electrómnico
+      </label>
+      <input
+        class="inputText"
+        data-testid="inputText"
+        id="input"
+        name="email"
+        value=""
+      />
+    </div>
+    <div
+      class="containerButton"
+    >
+      <button
+        class="generalButton"
+        name="Continuar"
+      >
+        Continuar
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`<Steps /> <InputSelect> validate useForm hook with JSON config for the component 1`] = `
+<div
+  data-testid="container-steps"
+>
+  <img
+    alt="logo hero"
+    class="logo"
+    src="superhero.png"
+  />
+  <div>
+    <progress
+      class="progressBar"
+      data-testid="progress"
+      max="1"
+      value="2"
+    />
+    <p
+      class="count"
+    >
+      2
+       / 
+      1
+    </p>
+  </div>
+  <form>
+    <div
+      class="containerSelect"
+    >
+      <label
+        class="label"
+      >
+        Tiene novia?
+      </label>
+      <select
+        class="selectInput"
+        data-testid="inputSelect"
+        name="girlFriend"
+      >
+        <option
+          value=""
+        >
+          Seleccione
+        </option>
+        <option
+          value="SI"
+        >
+          SI
+        </option>
+        <option
+          value="NO"
+        >
+          NO
+        </option>
+      </select>
+    </div>
+    <div
+      class="containerButton"
+    >
+      <button
+        class="generalButton"
+        name="Continuar"
+      >
+        Continuar
+      </button>
+    </div>
+  </form>
+</div>
+`;
