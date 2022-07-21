@@ -97,7 +97,7 @@ export const Checkbox: FunctionComponent<PropsInput> = ({
   <>
     <div className={styles.containerSelect}>
       <label className={styles.label}>{label}</label>
-      <input checked={field?.value} className={styles.checkbox} type='checkbox' {...field} />
+      <input data-testid='inputCheckbox' checked={field?.value} className={styles.checkbox} type='checkbox' {...field} />
     </div>
     {error && <p className={styles.inputError}>{error}</p>}
   </>
