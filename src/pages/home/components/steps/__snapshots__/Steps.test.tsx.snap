@@ -4,6 +4,15 @@ exports[`<Steps /> <InputData> validate useForm hook with JSON config for the co
 <div
   data-testid="container-steps"
 >
+  <div
+    class="containerResumeBtn"
+  >
+    <p
+      class="resumeBtn"
+    >
+      Resumen
+    </p>
+  </div>
   <img
     alt="logo hero"
     class="logo"
@@ -60,6 +69,15 @@ exports[`<Steps /> <InputSelect> validate useForm hook with JSON config for the 
 <div
   data-testid="container-steps"
 >
+  <div
+    class="containerResumeBtn"
+  >
+    <p
+      class="resumeBtn"
+    >
+      Resumen
+    </p>
+  </div>
   <img
     alt="logo hero"
     class="logo"
