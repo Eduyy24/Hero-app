@@ -2,7 +2,7 @@ import { ProgressBar } from "../../../../components/progress-bar/ProgressBar";
 import { WrapperSteps } from "../../../../components/wrapper-steps/WrapperSteps";
 import logoHero from "../../../../assets/superhero.png";
 import styles from "./Steps.module.css";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import Components from "../../../../components/Components";
 import { GeneralButton } from "../../../../components/general-button/GeneralButton";
 import { NAME_BUTTON_STEPS } from "../../../../utils/strings";
@@ -14,6 +14,7 @@ import {
 } from "../../../../redux/slices/generalSlice";
 import { useNavigate } from "react-router-dom";
 import usePagesData from "../../../../hooks/usePagesData";
+import { Modal } from "../../../../components/modal/Modal";
 
 type Props = {
   keyForm: string;
@@ -23,6 +24,8 @@ export const Steps: FunctionComponent<Props> = ({ keyForm }) => {
   const { getPageForKey, getAllPagesData, getPageForOrder } = usePagesData();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [openModal, setOpenModal] = useState(false)
+
 
   const allPages = getAllPagesData();
   const currentPage = getPageForKey(keyForm || "");
@@ -50,9 +53,16 @@ export const Steps: FunctionComponent<Props> = ({ keyForm }) => {
     navigate(`/${nextPath ?? "resume"}`);
   };
 
+  const onCloseModal = () => setOpenModal(false)
+
+  const onClickOpenModal = () => setOpenModal(true)
+
   return (
     <WrapperSteps>
       <div data-testid='container-steps'>
+        <div className={styles.containerResumeBtn}>
+          <p onClick={onClickOpenModal} className={styles.resumeBtn}>Resumen</p>
+        </div>
         <img className={styles.logo} src={logoHero} alt="logo hero" />
         <ProgressBar
           value={currentPage?.order || 0}
@@ -66,6 +76,9 @@ export const Steps: FunctionComponent<Props> = ({ keyForm }) => {
             <GeneralButton name={NAME_BUTTON_STEPS} />
           </div>
         </form>
+        <Modal onCloseModal={onCloseModal} open={openModal}>
+          <p>Este es un Resumen</p>
+        </Modal>
       </div>
     </WrapperSteps>
   );

@@ -5,8 +5,27 @@
   display: block;
 }
 
-.containerButton{
+.containerButton {
   display: flex;
   justify-content: center;
   margin-top: 1rem;
+}
+
+.containerResumeBtn {
+  display: none;
+}
+
+.resumeBtn {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--white);
+  font-size: 0.8rem;
+  text-align: end;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .containerResumeBtn {
+    display: block;
+  }
 }
