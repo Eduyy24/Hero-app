@@ -15,6 +15,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import usePagesData from "../../../../hooks/usePagesData";
 import { Modal } from "../../../../components/modal/Modal";
+import { ModalResume } from "./components/ModalResume/ModalResume";
 
 type Props = {
   keyForm: string;
@@ -77,7 +78,7 @@ export const Steps: FunctionComponent<Props> = ({ keyForm }) => {
           </div>
         </form>
         <Modal onCloseModal={onCloseModal} open={openModal}>
-          <p>Este es un Resumen</p>
+          <ModalResume />
         </Modal>
       </div>
     </WrapperSteps>
